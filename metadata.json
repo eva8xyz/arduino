@@ -1,0 +1,6 @@
+{
+  "name": "Web Arduino Flasher & I2C Studio",
+  "description": "サーバー不要・ブラウザ単体でArduino Uno R3等への書き込み、DFRobotDFPlayerMiniライブラリ管理、TCA9548A・MPR121のI2Cプレビュー＆制御ができるWebツール",
+  "requestFramePermissions": ["serial"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

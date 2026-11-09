@@ -1,0 +1,48 @@
+import { BoardConfig } from '../types';
+
+export const SUPPORTED_BOARDS: BoardConfig[] = [
+  {
+    id: 'uno',
+    name: 'Arduino Uno R3',
+    mcu: 'ATmega328P',
+    baudRate: 115200,
+    pageSize: 128,
+    flashSize: 32256,
+    signature: [0x1e, 0x95, 0x0f],
+    protocol: 'stk500v1',
+    description: '標準的なArduino Uno R3 (Optiboot 115200bps / 16MHz)',
+  },
+  {
+    id: 'nano_new',
+    name: 'Arduino Nano (New Bootloader)',
+    mcu: 'ATmega328P',
+    baudRate: 115200,
+    pageSize: 128,
+    flashSize: 30720,
+    signature: [0x1e, 0x95, 0x0f],
+    protocol: 'stk500v1',
+    description: '近年のArduino Nano互換機 (115200bps)',
+  },
+  {
+    id: 'nano_old',
+    name: 'Arduino Nano (Old Bootloader)',
+    mcu: 'ATmega328P',
+    baudRate: 57600,
+    pageSize: 128,
+    flashSize: 30720,
+    signature: [0x1e, 0x95, 0x0f],
+    protocol: 'stk500v1',
+    description: '従来の旧式ブートローダー搭載Nano (57600bps)',
+  },
+  {
+    id: 'promini_16m',
+    name: 'Arduino Pro Mini (5V, 16MHz)',
+    mcu: 'ATmega328P',
+    baudRate: 57600,
+    pageSize: 128,
+    flashSize: 30720,
+    signature: [0x1e, 0x95, 0x0f],
+    protocol: 'stk500v1',
+    description: 'Pro Mini 5V / 16MHz (FTDI/USBシリアル変換経由)',
+  },
+];
