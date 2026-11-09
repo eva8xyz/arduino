@@ -1,11 +1,8 @@
-name: Deploy to GitHub Pages
+name: Deploy GitHub Pages
 
 on:
   push:
-    branches:
-      - main
-      - master
-  workflow_dispatch:
+    branches: ["main"] # デフォルトブランチ名
 
 permissions:
   contents: read
@@ -17,7 +14,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build-and-deploy:
+  deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -26,7 +23,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -39,11 +36,12 @@ jobs:
         run: npm run build
 
       - name: Setup Pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v5
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
+          # ビルド成果物の出力フォルダ（Viteならdist、Create React Appならbuildなど）
           path: './dist'
 
       - name: Deploy to GitHub Pages
